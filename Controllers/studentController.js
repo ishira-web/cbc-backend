@@ -11,16 +11,13 @@ export function getStudents(req,res){
     )
 }
 
-export function createStudent(req,res){
-    const student = new Student(req.body)
-    student.save().then(()=>{
+export function createStudent(req, res) {
+    const newStudent = new student(req.body); // Use 'student' instead of 'Student'
+    newStudent.save().then(() => {
         res.json({
-            message : "Student Create Successfully !"
-        })
-    }).catch((err)=>{
-      res.json({
-        message : "Student Create Unsuccessfully !"
-      })
-    })
+            message: "Student Created Successfully!"
+        });
+    }).catch(err => {
+        res.status(500).json({ error: err.message });
+    });
 }
-
