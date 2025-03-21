@@ -1,33 +1,14 @@
 import express from "express";
-import Product from "../Model/product.js";
+import { createProduct, getProducts } from "../Controllers/productController.js";
 
 
 const productRoute = express.Router();
 
 //Create Product Get Router
 
-productRoute.get("/",(req,res)=>{
-    product.find().then(()=>{
-        (productList)=>[
-            res.json({
-                message : productList
-            })
-        ]
-    })
-});
+productRoute.get("/",getProducts);
 
-productRoute.post("/",(req,res)=>{
-    const product = new Product(req.body)
-    product.save().then(()=>{
-        res.json({
-            message : "Product Create Sucsessfully !"
-        })
-    }).catch((err)=>{
-        res.json({
-            message : "Product Create Failed !"
-        })
-    })
-})
+productRoute.post("/",createProduct);
 
 
 
