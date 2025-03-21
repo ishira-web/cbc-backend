@@ -24,4 +24,3 @@ export function createStudent(req,res){
     })
 }
 
-export default studentController ;

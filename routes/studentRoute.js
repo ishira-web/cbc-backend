@@ -4,14 +4,10 @@ import {getStudents, createStudent} from "../Controllers/studentController.js"
 
 // Create Student Router
 const studentRouter = express.Router();
-
-studentRouter.get("/",(req,res)=>{
-
-})
-
-studentRouter.post("/",(req,res)=>{
-    
-})
+// Assign the Get student Functions in there
+studentRouter.get("/",getStudents);
+//Assign the Create student Functions in there 
+studentRouter.post("/",createStudent);
 
 
 export default studentRouter;
