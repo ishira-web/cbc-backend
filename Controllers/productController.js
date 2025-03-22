@@ -1,17 +1,21 @@
+import product from "../Model/product.js"
+
+
+// Get All Products
 export function getProducts(req,res){
-    product.find().then(()=>{
+    product.find().then(
         (productList)=>[
             res.json({
                 message : productList
             })
         ]
-    })
+    )
 }
 
-
+// Create Product 
 export function createProduct(req,res){
-    const product = new Product(req.body)
-    product.save().then(()=>{
+    const newProduct = new product(req.body)
+    newProduct.save().then(()=>{
         res.json({
             message : "Product Create Sucsessfully !"
         })
@@ -20,4 +24,31 @@ export function createProduct(req,res){
             message : "Product Create Failed !"
         })
     })
+}
+
+// Delete Product
+
+export function deleteProduct(req,res){
+    product.deleteOne({pd_name: req.body.pd_name}).then(
+        ()=>{
+            res.json({
+                message : "Product Delete Successfully"
+            })
+        }
+    )
+}
+
+//Get Product by name
+
+export function getProductbyName(req,res){
+    
+    const pd_name = req.body.pd_name;
+
+    product.find({pd_name:req.body.pd_name}).then(
+     (productList =>{
+        res.json({
+           list : productList
+     })
+     })
+    )
 }
