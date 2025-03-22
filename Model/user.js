@@ -27,8 +27,7 @@ const userSchema = mongoose.Schema({
     profilePicture:{
         type: String,
         default :"https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg?t=st=1742660046~exp=1742663646~hmac=fa174f30fbb43c49eb876dbb71d019c22f38cc8bf083250fcfa0571d97c70d5e&w=826"
-    }
-    
+    }   
 })
 
 const User = mongoose.model("User",userSchema);
