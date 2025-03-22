@@ -4,15 +4,13 @@ import { createProduct, deleteProduct, getProductbyName, getProducts } from "../
 
 const productRoute = express.Router();
 
-//Create Product Get Router
-
 productRoute.get("/",getProducts);
 
 productRoute.post("/",createProduct);
 
 productRoute.delete("/",deleteProduct);
 
-productRoute.get("/getProductsbyName",getProductbyName);
+productRoute.get("/:pd_name",getProductbyName);
 
 
 export default productRoute;

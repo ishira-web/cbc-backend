@@ -42,13 +42,19 @@ export function deleteProduct(req,res){
 
 export function getProductbyName(req,res){
     
-    const pd_name = req.body.pd_name;
+    const pd_name = req.params.pd_name;
 
     product.find({pd_name:req.body.pd_name}).then(
      (productList =>{
-        res.json({
-           list : productList
-     })
-     })
-    )
+        if(productList.length == 0){
+            res.json({
+                message : "Product is Not Found !"
+            })
+        }else{
+            res.json({
+                list : productList
+          })
+        }
+    }
+))
 }
