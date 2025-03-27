@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import studentRoute from "./routes/studentRoute.js"
 import productRoute from "./routes/productRoute.js";
+import userRouter from "./routes/userRoute.js";
 
 const app = express();
 //server port
@@ -17,7 +18,8 @@ connection.once("open",()=>{
 
 app.use(bodyParser.json());
 app.use("/api/students",studentRoute);
-app.use("/api/products",productRoute)
+app.use("/api/products",productRoute);
+app.use("/api/users",userRouter)
 
 // Server Port Implementation
 app.listen(port,()=>{
