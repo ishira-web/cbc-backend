@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import user from "../Model/user.js";
 import bcrypt from "bcrypt"; // import bcrypt
 import User from "../Model/user.js";
